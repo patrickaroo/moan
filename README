@@ -1,0 +1,6 @@
+`npm install`
+
+`bower install`
+
+`webpack-dev-server -d --progress --colors --watch`
+
