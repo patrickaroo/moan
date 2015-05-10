@@ -1,5 +1,6 @@
 import React from '../bower_components/react/react-with-addons.js';
 import _ from '../bower_components/underscore/underscore.js'
+import $ from '../bower_components/jquery/dist/jquery.js';
 
 let EntryBox = React.createClass({
 
@@ -40,7 +41,8 @@ let EntryBox = React.createClass({
   getInitialState() {
     return {
       value: 'Only haikus and 140 words +',
-      canSubmit: false
+      canSubmit: false,
+      submitted: false
     }
   },
 
@@ -52,8 +54,18 @@ let EntryBox = React.createClass({
     });
   },
 
-  doSomething() {
-    console.log("Hello world");
+  submitMoan(e) {
+    let data = {
+      user: "anonymous",
+      text: this.state.value
+    };
+    $.ajax({
+        type: "POST",
+        url: "/post/",
+        processData: false,
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: () => this.setState({'submitted': true})});
   },
 
   render() { 
@@ -62,8 +74,8 @@ let EntryBox = React.createClass({
         <div>
           <textarea type="text" value={this.state.value} onChange={this.handleChange} />
         </div>
-
-        <button type="button" disabled={!this.state.canSubmit}>Moan</button>
+        <div onClick={this.submitMoan} style={{"display": this.state.canSubmit ? "block" : "none"}}>Moan</div>
+        {this.state.submitted ? 'Submitted' : null}
       </div>
     );
   }

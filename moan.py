@@ -32,6 +32,12 @@ def gnu_terry_pratchett(resp):
 def index():
     return send_from_directory(app.static_folder, 'index.html')
 
+# http://codepen.io/asommer70/blog/serving-a-static-directory-with-flask
+@app.route('/<path>')
+def static_proxy(path):
+  # send_static_file will guess the correct MIME type
+  return send_from_directory(app.static_folder, path)
+
 @app.route('/posts', methods = ['GET'])
 def get_posts():
     posts = session.query(Moan).all()
@@ -46,6 +52,8 @@ def get_post(postId = None):
 @app.route('/post/', methods=['POST'])
 def make_post():
     newPost = Moan()
+    print("hi")
+    print(request.data)
     data = ast.literal_eval(request.data)
 
     newPost.text = data['text']

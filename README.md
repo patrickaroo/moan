@@ -7,3 +7,5 @@ haiku, or 140 words or more, twitter clone... your choice.
 >npm install
 >bower install
 >npm start
+
+Run "webpack" in static before running python server.
