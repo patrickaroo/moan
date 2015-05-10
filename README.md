@@ -2,8 +2,8 @@
 haiku, or 140 words or more, twitter clone... your choice.
 
 # To get started...
-`npm install`
-
-`bower install`
-
-`npm start`
+>pip install -r requirements.txt
+>cd static
+>npm install
+>bower install
+>npm start
