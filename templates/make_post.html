@@ -1,0 +1,10 @@
+<form class="form form-horizontal" role="form" method="POST" action="/make_post/">
+    {% for field in form %}
+        {% if field.label != 'csrf_token' %}
+        {{ field.label }} <br/>{{ field }}<br/>
+        {% else %}
+        {{ field.label }}{{ field }}
+        {% endif %}
+    {% endfor %}<br/>
+    <input type="submit" value="Moan it!" class="btn btn-success">
+</form>
