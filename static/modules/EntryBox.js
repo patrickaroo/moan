@@ -6,8 +6,9 @@ let EntryBox = React.createClass({
   statics: {
     // from http://stackoverflow.com/questions/5686483/how-to-compute-number-of-syllables-in-a-word-in-javascript
     syllableCount(word) {
+      if(!word) {return 0;}
       word = word.toLowerCase();                                     //word.downcase!
-      if(word.length <= 3) { return 1; }                             //return 1 if word.length <= 3
+      if(!word || word.length <= 3) { return 1; }                             //return 1 if word.length <= 3
       word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');   //word.sub!(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '')
       word = word.replace(/^y/, '');                                 //word.sub!(/^y/, '')
       return word.match(/[aeiouy]{1,2}/g).length;                    //word.scan(/[aeiouy]{1,2}/).size
