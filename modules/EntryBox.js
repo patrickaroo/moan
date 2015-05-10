@@ -17,7 +17,7 @@ let EntryBox = React.createClass({
     isHaiku(text) {
       let lines = text.split(/\n/);
 
-      let lineCounts = _(lines).map(line => _(line.split(' ')).map(this.syllableCount);
+      let lineCounts = _(lines).map(line => _(line.split(' ')).map(this.syllableCount));
 
       if (linesCounts.length < 3)
         return false;
@@ -26,13 +26,13 @@ let EntryBox = React.createClass({
     },
 
     isLong(text) {
-      return text.split(" ").length > 140;
+      return text.split(' ').length > 140;
     }
   },
 
   getInitialState() {
     return {
-      value: "Only haikus and 140 words +",
+      value: 'Only haikus and 140 words +',
       canSubmit: false
     }
   },
