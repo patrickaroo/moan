@@ -1,3 +1,4 @@
+'''
 from nltk.corpus import cmudict
 d = cmudict.dict()
 import string
@@ -17,3 +18,4 @@ def is_haiku(text):
 
 if __name__ == "__main__":
 	print is_haiku('An old silent pond... A frog jumps into the pond, splash! Silence again.')
+'''

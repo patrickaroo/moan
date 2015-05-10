@@ -10,7 +10,7 @@ try:
 except:
     import pickle
 
-from syllables import is_haiku
+#from syllables import is_haiku
 
 import sys
 reload(sys)
@@ -37,6 +37,8 @@ def test_post():
 	# Number of words first
 	if len(request.data.split()) > 139:
 		return True
+	else:
+		return False
 	'''
 	elif is_haiku(request.data):
 		return True
