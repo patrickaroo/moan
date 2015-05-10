@@ -29,7 +29,7 @@ def gnu_terry_pratchett(resp):
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-    return "Hello world!"#render_template('index.html', form=form)
+    #return "Hello world!"#render_template('index.html', form=form)
     return render_template('index.html', moans = session.query(Moan).all())
 
 @app.route('/test_post/', methods=['POST'])
@@ -55,6 +55,7 @@ def make_post():
 		newPost.user = form.user.data
 		session.add(newPost)
 		session.commit()
+		return redirect(url_for('index'))
 	return render_template('make_post.html', form = form)
 
 
