@@ -17,9 +17,15 @@ let EntryBox = React.createClass({
     isHaiku(text) {
       let lines = text.split(/\n/);
 
-      let lineCounts = _(lines).map(line => _(line.split(' ')).map(this.syllableCount));
+      let lineCounts = _(lines).map(line => {
+        return _(line.split(' '))
+          .chain()
+          .map(this.syllableCount)
+          .reduce((sum, count) => sum + count, 0)
+          .value()
+      });
 
-      if (linesCounts.length < 3)
+      if (lineCounts && lineCounts.length < 3)
         return false;
 
       return (lineCounts[0] === 5 && lineCounts[1] === 7 && lineCounts[2] === 5);
