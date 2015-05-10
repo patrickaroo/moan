@@ -8,7 +8,7 @@ let MoanItem = React.createClass({
   },
 
   render() {
-    return (<div>
+    return (<div className="MoanItem">
       Moan {this.props.moan.id}: {this.props.moan.text} 
     </div>);
   }
