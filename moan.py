@@ -37,10 +37,12 @@ def test_post():
 	# Number of words first
 	if len(request.data.split()) > 139:
 		return True
+	'''
 	elif is_haiku(request.data):
 		return True
 	else:
 		return False
+	'''
 
 @app.route('/make_post/', methods=['GET', 'POST'])
 def make_post():
