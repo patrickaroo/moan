@@ -1,6 +1,8 @@
 # moan
 haiku, or 140 words or more, twitter clone... your choice.
 
+# parody project as part of the San Francisco Stupid Hackathon
+
 # To get started...
 >pip install -r requirements.txt
 >cd static
